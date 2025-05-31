@@ -56,8 +56,10 @@ function playGame(humanChoice, computerChoice) {
 function printWinner(humanScore, computerScore) {
   if (humanScore > computerScore) {
     console.log(`Humanity continues their reign.`)
-  } else {
+  } else if (humanScore < computerScore ) {
     console.log(`Computers take over the world.`)
+  } else {
+    console.log(`An uneasy peace grips the two dominant beings in the world.`)
   }
 }
 
