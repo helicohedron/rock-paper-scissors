@@ -21,52 +21,80 @@ function getHumanChoice() {
   return(userInput.toLowerCase());
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
+//function that plays 5 rounds, keeps track of score, and declares a winner at the end
+function playGame(humanChoice, computerChoice) {
+  let humanScore = 0;
+  let computerScore = 0;
+  
+  for (let i = 1; i < 6; i++) {
+    results = playRound(humanChoice, computerChoice);
+
+    if (results === true) {
+      console.log(`Computer wins round ${i}.`);
+      computerScore += 1;
+      console.log(`Human score: ${humanScore}`);
+      console.log(`Computer score: ${computerScore}`);
+    } else if (results === false) {
+      console.log(`Human wins round ${i}.`);
+      humanScore += 1;
+      console.log(`Human score: ${humanScore}`);
+      console.log(`Computer score: ${computerScore}`);
+    } else {
+      console.log(`It's a draw for round ${i}.`);
+      console.log(`Human score: ${humanScore}`);
+      console.log(`Computer score: ${computerScore}`);
+    }  
+  }
+
+  console.log(`FINAL HUMAN SCORE: ${humanScore}`);
+  console.log(`FINAL COMPUTER SCORE: ${computerScore}`);
+  
+}
 
 // function for a single round of rock, paper, scissors
 function playRound(humanChoice, computerChoice) {
-  if (humanChoice == computerChoice) {
-    return "It's a draw.";
-  } 
+  humanChoice = getHumanChoice();
+  computerChoice = getComputerChoice();
 
+  if (humanChoice == computerChoice) {
+    return 'draw';
+  } 
+  
   if (humanChoice == 'rock') {
     switch(computerChoice) {
       case 'paper':
-        return 'Computer wins!';
+        return true;
         break;
       case 'scissors':
-        return 'Human wins!';
+        return false;
         break;
     }
   }
-
-    if (humanChoice == 'paper') {
+      
+  if (humanChoice == 'paper') {
     switch(computerChoice) {
       case 'scissors':
-        return 'Computer wins!';
+        return true;
         break;
       case 'rock':
-        return 'Human wins!';
+        return false;
         break;
     }
   }
-
-    if (humanChoice == 'scissors') {
+          
+  if (humanChoice == 'scissors') {
     switch(computerChoice) {
       case 'rock':
-        return 'Computer wins!';
+        return true;
         break;
       case 'paper':
-        return 'Human wins!';
+        return false;
         break;
     }
   }
 }
-
-let humanScore = 0;
-let computerScore = 0;
-console.log(playRound(humanChoice, computerChoice));
+         
+playGame();
 
 
 
