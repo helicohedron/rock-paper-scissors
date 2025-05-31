@@ -26,9 +26,11 @@ function playRound(humanChoice, computerChoice) {
     return 'draw';
   } 
   
-  if ((humanChoice == 'rock' && computerChoice == `paper`) ||
-  (humanChoice == `paper` && computerChoice == `scissors`) ||
-  (humanChoice == `scissors` && computerChoice == `rock`)) {
+  if (
+    (humanChoice == 'rock' && computerChoice == `paper`) ||
+    (humanChoice == `paper` && computerChoice == `scissors`) ||
+    (humanChoice == `scissors` && computerChoice == `rock`)
+  ) {
     console.log(`Human: ${humanChoice}, Computer: ${computerChoice}`);
     return true;
   } else {
