@@ -4,15 +4,23 @@ function getComputerChoice() {
   
   switch (randomNum) {
     case 1:
-      return "rock";
+      return 'rock';
       break;
     case 2:
-      return "paper";
+      return 'paper';
       break;
     case 3:
-      return "scissors";
+      return 'scissors';
       break;  
   } 
 }
 
 // console.log(getComputerChoice());
+
+// function that prompts the user for either rock, paper, or scissors
+function getHumanChoice() {
+  let userInput = prompt('Rock, Paper, or Scissors?');
+  return(userInput.toLowerCase());
+}
+
+console.log(getHumanChoice());
