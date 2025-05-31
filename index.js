@@ -49,6 +49,16 @@ function playGame(humanChoice, computerChoice) {
   console.log(`FINAL HUMAN SCORE: ${humanScore}`);
   console.log(`FINAL COMPUTER SCORE: ${computerScore}`);
   
+  printWinner(humanScore, computerScore);
+}
+
+// function that prints the winner of the game
+function printWinner(humanScore, computerScore) {
+  if (humanScore > computerScore) {
+    console.log(`Humanity continues their reign.`)
+  } else {
+    console.log(`Computers take over the world.`)
+  }
 }
 
 // function for a single round of rock, paper, scissors
